@@ -12,7 +12,7 @@ namespace Students_Naididis
         private readonly string _author;
         private readonly DateTime _time;
         private int _likes;
-
+        public Message() { }
         public Message(string content, string author, DateTime time)
         {
             this._content = content;
@@ -37,12 +37,12 @@ namespace Students_Naididis
             {
                 return _likes;
             }
-            return _likes / elapsed;
+            return (_likes / elapsed)*100000000;
 
         }
         public void ShowMessageInfo()
         {
-            Console.WriteLine("Sisu:{0}\nAutor:{1}", Content,Author);
+            Console.WriteLine("Sisu:{0}\nAutor:{1}\nMeeldused:{2}\nPopolaarsus:{3}", Content,Author,_likes,GetPopularity());
         }
         public string GetPopularityInfo(double esimene, double teine)
         {
